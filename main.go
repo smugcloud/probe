@@ -33,5 +33,5 @@ func main() {
 }
 
 func init() {
-	flag.StringVar(&port, "port", "9000", "Specify the port number you would like to use.")
+	flag.StringVar(&port, "port", "9000", "Specify the port number the server will listen on.")
 }
