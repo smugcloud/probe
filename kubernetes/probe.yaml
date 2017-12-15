@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: container-probe
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: probe
+    spec:
+      containers:
+      - name: probe
+        image: smugcloud/probe
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: probe
+spec:
+  selector:
+    app: probe
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9000
