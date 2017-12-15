@@ -2,6 +2,13 @@
 
 Web server used to ack back information from a running container.
 
+Current information returned:
+
+* Hostname of the container
+* Private IP of the container
+
+## Usage
+
 ```
 $ probe -h
 Usage of probe:
