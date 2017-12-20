@@ -10,6 +10,7 @@ import (
 )
 
 var port string
+const version = "1"
 
 // Probe acks back details about the container
 func Probe(w http.ResponseWriter, req *http.Request) {
@@ -23,6 +24,7 @@ func Probe(w http.ResponseWriter, req *http.Request) {
 		log.Printf("Failed to execute command: %s", cmd)
 	}
 	s += "Local IP of container: " + string(out) + "\n"
+	s += "Application version: " + version + "\n"
 	io.WriteString(w, s)
 }
 
