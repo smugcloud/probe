@@ -10,7 +10,7 @@ import (
 )
 
 var port string
-const version = "1"
+const version = "2"
 
 // Probe acks back details about the container
 func Probe(w http.ResponseWriter, req *http.Request) {
