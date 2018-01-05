@@ -66,9 +66,9 @@ spec:
         - --web
         - --kubernetes
       nodeSelector:
-        kubernetes.io/types: public
+        kubernetes.dcos.io/node-type: public
       tolerations:
-      - key: "public"
+      - key: "node-type.kubernetes.dcos.io/public"
         operator: "Equal"
         value: "true"
         effect: "NoSchedule"
