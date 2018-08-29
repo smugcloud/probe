@@ -13,20 +13,22 @@ var (
 	addr     string
 	port     string
 	hostname string
-	s        string
 	out      string
+	s        string
 )
 
 // Probe acks back details about the container
 func Probe(w http.ResponseWriter, req *http.Request) {
-
+	log.Printf("variable is: %v", s)
 	io.WriteString(w, s)
 }
 
 func main() {
 	flag.Parse()
+
+	//Gather the details the response will contain
 	hostname, _ := os.Hostname()
-	s := "Hello from container: " + hostname + "\n"
+	s = "Hello from container: " + hostname + "\n"
 
 	cmd := "ifconfig eth0 | grep 'inet addr' | cut -d: -f2 | awk '{ print $1}'"
 	out, err := exec.Command("sh", "-c", cmd).Output()
